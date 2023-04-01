@@ -4,16 +4,17 @@ import MyTooltip from "./Tooltip";
 import { useFormValues } from "../context/FormContext";
 
 const RenderInput = ({ item }) => {
+    
     const { formValues, handleChange } = useFormValues()
-    const { label, description, validate, jsonKey, placeholder } = item;
+    const { label, description, validate, jsonKey, placeholder, disable } = item;
     const { required, immutable, pattern } = validate;
-
+    
     let isDescriptionEmpty = description.length === 0 ? true : false
-    let isPatternEmpty = (pattern) ? true : false
-    let isRequired = required
-    let isEditable = !immutable
+    // return null if the component is disabled
+    if(disable === true) return null
+    return (  
+        <>
 
-    return (
         <Box key={jsonKey}>
             <Stack direction="row"
                 justifyContent="space-between"
@@ -23,7 +24,7 @@ const RenderInput = ({ item }) => {
                 {!isDescriptionEmpty && <MyTooltip text={description} />}
                 <TextField
                     value={formValues[jsonKey]}
-                    onChange={(event) => { handleChange(jsonKey, event.target.value) }}
+                    onChange={(event) => { handleChange(jsonKey, event.target.value, 'mount') }}
                     placeholder={placeholder}
                     required={required}
                     readOnly={immutable}
@@ -31,6 +32,8 @@ const RenderInput = ({ item }) => {
                 />
             </Stack>
         </Box>
+        
+        </>
     )
 }
 

@@ -2,12 +2,13 @@ import { Grid } from "@mui/material"
 import FormBuilder from "./FormBuilder"
 import JsonEditor from "./JsonEditor"
 import { useState } from "react"
-import sampleSchema from '../pizza.json'
+import pizzaSchema from '../pizza.json'
 import { FormProvider } from "../context/FormContext"
-
+import pastaSchema from '../pasta.json'
 function Dashboard() {
-    const [uiSchema, setUiSchema] = useState(sampleSchema)
-    // console.log('uiSchema', uiSchema)
+  // initial data for the form
+    const [uiSchema, setUiSchema] = useState(pizzaSchema)
+
   return (
     <FormProvider>
     <Grid container>

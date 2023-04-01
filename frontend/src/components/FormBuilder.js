@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import renderForm from '../utils/renderForm'
+import { Box, Button } from '@mui/material'
+import { useFormValues } from '../context/FormContext';
+import FinalJsonModal from './FinalJsonModal';
+
+function FormBuilder({ uiSchema }) {
 
 
-function FormBuilder({uiSchema}) {
+
   return (
-<>{renderForm(uiSchema)}</>
+    <>
+      <h4>Dynamic Schema Form</h4>
+      <Box sx={{ p: 2 }}>
+        {renderForm(uiSchema)}
+        <FinalJsonModal />
+
+      </Box>
+    </>
   )
 }
 

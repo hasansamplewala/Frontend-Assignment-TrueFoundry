@@ -14,10 +14,11 @@ function JsonEditor({ uiSchema, setUiSchema }) {
 
     return (
         <>   <Box >
+            <h4>Paste your JSON Schema below</h4>
             <TextField
                 fullWidth
                 multiline
-                rows={100}
+                rows={25}
                 variant="outlined"
                 placeholder="Paste your UI Schema here"
                 value={JSON.stringify(uiSchema, null, 2)}
