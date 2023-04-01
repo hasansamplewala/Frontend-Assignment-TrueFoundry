@@ -4,7 +4,7 @@ Follow the below steps,
 
 Clone the repository
 
-Run the following commands in your terminal from /json-schema-form-builder
+Run the following commands in your terminal from directry /Frontend-Assignment-TrueFoundry
 
 cd /frontend
 
