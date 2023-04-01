@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import renderForm from '../utils/renderForm'
 import { Box, FormGroup, FormLabel } from '@mui/material';
 import { useFormValues } from '../context/FormContext';
@@ -37,36 +37,36 @@ function RenderIgnore({ item }) {
 
   // Add or remove the jsonKey from the disabledValues array
   useEffect(() => {
-    console.log('mounting RenderIgnore', jsonKey)
-    console.log('keysOfSubParams', keysOfSubParams)
-    console.log('shouldDisplay', shouldDisplay, 'jsonKey', jsonKey)
+    // console.log('mounting RenderIgnore', jsonKey)
+    // console.log('keysOfSubParams', keysOfSubParams)
+    // console.log('shouldDisplay', shouldDisplay, 'jsonKey', jsonKey)
     if (shouldDisplay) {
       // Remove all matching keys of the keysOfSubParams array from the disabledValues array when the component is displayed
-      console.log('DisabledValues before removing keys', disabledValues)
+      // console.log('DisabledValues before removing keys', disabledValues)
       setDisabledValues((prevDisabledValues)=>{
 
         return prevDisabledValues.filter((item) => {
           return !keysOfSubParams.includes(item)
         })
       })
-      console.log('newDisabledValues after removing keys', disabledValues)
+      // console.log('newDisabledValues after removing keys', disabledValues)
  
     }
     if (shouldDisplay === false) {
-      console.log('DisabledValues before adding keys', disabledValues)
+      // console.log('DisabledValues before adding keys', disabledValues)
       // Add all the keys from the keysOfSubParams array to the disabledValues array when the component is hidden
       setDisabledValues((prevDisabledValues)=>{
         return [...prevDisabledValues, ...keysOfSubParams]
       })
-      console.log('newDisabledValues after adding keys', disabledValues)
+      // console.log('newDisabledValues after adding keys', disabledValues)
     }
 
     return (() => {
-      console.log('unmounting RenderIgnore', jsonKey)
+      // console.log('unmounting RenderIgnore', jsonKey)
     })
   }, [shouldDisplay]);
 
-  console.log('Final DisabledValues', disabledValues)
+  // console.log('Final DisabledValues', disabledValues)
   return (
     <>
       {shouldDisplay &&

@@ -26,7 +26,7 @@ const RenderInput = ({ item }) => {
                     value={formValues[jsonKey]}
                     onChange={(event) => { handleChange(jsonKey, event.target.value, 'mount') }}
                     placeholder={placeholder}
-                    required={required}
+                    required
                     readOnly={immutable}
                     pattern={pattern}
                 />

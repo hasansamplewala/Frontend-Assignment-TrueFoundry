@@ -25,7 +25,7 @@ function RenderSelect({ item, hasOptionalFields }) {
   })
 
   const handleSelectChange = (event) => {
-    console.log('Handling Select Change')
+    // console.log('Handling Select Change')
     handleChange(jsonKey, event.target.value, 'mount')
   }
   // console.log(jsonKey ,'hasOptionalFields', hasOptionalFields, showAdvanced)

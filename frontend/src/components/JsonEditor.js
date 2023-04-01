@@ -5,6 +5,7 @@ function JsonEditor({ uiSchema, setUiSchema }) {
 
     const handleEditorChange = (event) => {
         try {
+            console.log('handleEditorChange')
             const json = JSON.parse(event.target.value)
             setUiSchema(json)
         } catch (error) {
@@ -15,6 +16,9 @@ function JsonEditor({ uiSchema, setUiSchema }) {
     return (
         <>   <Box >
             <h4>Paste your JSON Schema below</h4>
+            <p>Sample JSON schema pre-loaded</p>
+            <p>Note: You can only paste a valid Json, invalid JSON will thorw an error.</p>
+            <p>Edit values inside the inverted commas only, for boolean value directly overwrite/paste the value.</p>
             <TextField
                 fullWidth
                 multiline

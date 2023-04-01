@@ -40,22 +40,22 @@ function RenderRadio({ item, hasOptionalFields }) {
 
   return (
     <>
-    {
-      showAdvanced &&
-      <Box key={jsonKey}>
-        {!isDescriptionEmpty && <MyTooltip text={description} />}
-        <Tabs
-          indicatorColor="primary"
-          value={currentFormValue}
-          onChange={handleTabChange}
-          textColor="primary"
-        >
-          {optionValues.map((option) =>
-            <Tab key={option.value} value={option.value} label={option.label} />
-          )}
-        </Tabs>
-      </Box>
-}
+      {
+        showAdvanced &&
+        <Box key={jsonKey}>
+          {!isDescriptionEmpty && <MyTooltip text={description} />}
+          <Tabs
+            indicatorColor="primary"
+            value={currentFormValue}
+            onChange={handleTabChange}
+            textColor="primary"
+          >
+            {optionValues.map((option) =>
+              <Tab key={option.value} value={option.value} label={option.label} />
+            )}
+          </Tabs>
+        </Box>
+      }
 
       <AdvancedFieldsSwitch
         hasOptionalFields={hasOptionalFields}

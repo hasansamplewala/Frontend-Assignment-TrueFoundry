@@ -8,8 +8,6 @@ export const FormProvider = ({ children }) => {
   // disabledValues state will hold the values of all the disabled form components
   const [disabledValues, setDisabledValues] = useState([]);
 
-  const [finalFormValues, setFinalFormValues] = useState({});
-
   const handleChange = (key, value, action) => {
     // action can be mount or unmount
     // console.log('handling change for', key, value)
@@ -22,28 +20,17 @@ export const FormProvider = ({ children }) => {
         [key]: value
       }))
     }
-    if (action === 'unmount') {
-      // remove the key and its value from the formValues state
-      // the rest operator will remove the key and its value from the formValues state
-      // console.log('unmounting with', key, value)
-      // const { [key]: _, ...rest } = formValues
-      // console.log('rest', rest)
-      // // setFormValues(rest)
-      // setFormValues((prevValues) => ({
-      //   ...prevValues,
-      //   ...rest
-      // }))
-    }
 
   }
 
   const generateFinalJson = () => {
-    console.log('disabledValues for generateFinalJson', disabledValues)
+    // console.log('disabledValues for generateFinalJson', disabledValues)
     const finalFormValues = { ...formValues };
     disabledValues.forEach((key) => {
       delete finalFormValues[key];
     });
-    console.log('finalFormValues after deletion', finalFormValues)
+    
+    // console.log('finalFormValues after deletion', finalFormValues)
     return finalFormValues;
   };
 
@@ -68,7 +55,7 @@ export const useFormValues = () => {
 
   const contextValue = useContext(FormContext);
   if (contextValue === undefined) {
-    throw new Error("useCounter must be within a FormContext");
+    throw new Error("useFormValues must be within a FormContext");
   }
 
   return contextValue;

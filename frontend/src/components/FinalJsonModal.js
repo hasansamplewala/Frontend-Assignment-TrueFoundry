@@ -33,7 +33,7 @@ export default function FinalJsonModal() {
 
   // reset the formValues to its default values
   const handleCancel = () => {
-
+    window.location.reload()
   };
   return (
     <Box display="flex" justifyContent="center" mt={2}>
